@@ -27,13 +27,10 @@ The goal of this assignment is to solve the knight's tour problem using a **gene
 ## 🎮 How to Use
 
 After launching the application, you will see the main window. 
-<table>
-  <tr>
-    <td width="100%" align="center">
+
+   <p align="center">
       <img src="./assets/main.png" alt="Screenshot of the loading" width="50%"/>
-    </td>
-  </tr>
-</table>
+    </p>
 
 This application offers two main modes: playing pre-designed **Default** position of knight is (0,0)
 
