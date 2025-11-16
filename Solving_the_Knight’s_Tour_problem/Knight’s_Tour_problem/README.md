@@ -50,7 +50,7 @@ After launching the application, you will see the main menu. Click the **Play** 
 Next, pick a position of x and y (0 - 7).
 
 <p align="center">
-  <img src="./assets/Choose.png" alt="Level selection grid" width="50%"/>
+  <img src="./assets/choose_position.png" alt="Map type selection after clicking Play" width="50%">
 </p>
 
 **3. Preview the animation**
