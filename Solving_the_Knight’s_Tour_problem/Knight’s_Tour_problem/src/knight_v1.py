@@ -2,8 +2,9 @@ from chromosome import Chromosome
 import random
 
 class Knight:
-    def __init__(self, chromosome=None):
-        self.position = (0, 0) 
+    def __init__(self, chromosome=None, start_pos=(0, 0)):
+        self.start_position = start_pos  # Stocker la position de départ
+        self.position = start_pos
         self.chromosome = chromosome if chromosome else Chromosome()
         self.path = [self.position]
         self.check_moves()

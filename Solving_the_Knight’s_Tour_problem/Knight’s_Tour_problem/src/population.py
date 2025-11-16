@@ -3,7 +3,8 @@ import random
 class Population:
     def __init__(self, population_size=50):
         self.population_size = population_size
-        self.knights = [Knight() for _ in range(population_size)]
+        #self.knights = [Knight() for _ in range(population_size)]
+        self.knights = [Knight(start_pos=(0, 0)) for _ in range(population_size)]
         self.generation = 1
 
     def check_population(self):

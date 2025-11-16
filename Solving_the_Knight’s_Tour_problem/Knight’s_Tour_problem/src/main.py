@@ -1,4 +1,5 @@
 import yaml
+import pygame
 from population import Population
 from animation import run_animation
 import random
@@ -103,14 +104,79 @@ def run_genetic_algorithm():
     return best_knight.path
 
 
+# if __name__ == "__main__":
+#     random.seed(42)
+#     print("Démarrage de l'algorithme génétique...")
+
+#     while True:
+#         path = run_genetic_algorithm()
+#         print(f"\nSolution trouvée : {len(path)} cases")
+
+#         from animation import run_animation
+#         result = run_animation(path)  # Retourne (x,y) ou "restart"
+
+#         if result == "restart":
+#             print("Redémarrage...")
+#             continue
+#         else:
+#             chosen_start = result
+#             print(f"Animation lancée depuis : {chosen_start}")
+#             break
+
+#     pygame.quit()
+#     print("Programme terminé.")
+
 if __name__ == "__main__":
-    #random.seed(42)  
-    print("Lancement de l'algorithme génétique...")
-    path = run_genetic_algorithm()
+    random.seed(42)
+    print("Démarrage de l'algorithme génétique...")
 
-    print(f"\nAnimation du meilleur chemin trouvé ({len(path)} cases): {path}")
-    from animation import run_animation
-    result = run_animation(path)
+    while True:
+        path = run_genetic_algorithm()
+        print(f"\nSolution trouvée : {len(path)} cases")
 
-    if result == "restart":
-        print("Redémarrage demandé...")
+        from animation import run_animation
+        result = run_animation(path)
+
+        if result == "restart":
+            print("Redémarrage...")
+            continue
+        else:
+            chosen_start = result
+            if chosen_start != (0, 0):
+                print(f"Position de départ choisie: {chosen_start}")
+                print("Recalcul du chemin avec la nouvelle position de départ...")
+                
+                # Recréer un Knight avec la nouvelle position de départ
+                from knight_v1 import Knight
+                from chromosome import Chromosome
+                
+                # Trouver le chromosome du meilleur chemin
+                best_knight = None
+                max_fitness = 0
+                population = Population(population_size=population_size)
+                population.check_population()
+                for knight in population.knights:
+                    if knight.fitness > max_fitness:
+                        max_fitness = knight.fitness
+                        best_knight = knight
+                
+                if best_knight:
+                    # Créer un nouveau knight avec la position choisie
+                    new_knight = Knight(
+                        chromosome=best_knight.chromosome, 
+                        start_pos=chosen_start
+                    )
+                    new_knight.check_moves()
+                    new_path = new_knight.path
+                    
+                    print(f"Nouveau chemin ({len(new_path)} cases) depuis {chosen_start}")
+                    
+                    # Relancer l'animation avec le nouveau chemin
+                    result = run_animation(new_path)
+                    if result == "restart":
+                        continue
+            
+            break
+
+    pygame.quit()
+    print("Programme terminé.")
