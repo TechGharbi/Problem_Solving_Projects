@@ -1,12 +1,21 @@
 # The-Knight-s-Tour-problem-using-a-genetic-algorithm
+[![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)](https://www.python.org/)
 
 <img height="200" alt="knights" src="https://th.bing.com/th/id/R.314a9194f7a96c3906b196145d5fd2be?rik=2eKU667bP2MRyw&riu=http%3a%2f%2fmedia.moddb.com%2fimages%2fgames%2f1%2f61%2f60096%2fGameLogoBckg.png&ehk=RaL0%2f8IAzvllAM2T%2f6WMVCUPJopruIaZz2glunMpS%2f8%3d&risl=&pid=ImgRaw&r=0" width="100%"/>
-
 
 
 The knight can move to the square marked in red and then repeat the process on the new square.
 A **knight's tour** is a sequence of moves where the knight visits every square on the chessboard exactly once.
 
+---
+## 📖 Table of Contents
+
+- [Objective](#-Objective)
+- [How to Use](#-How-to-Use)
+- [1. Chromosome Class](#-1.-Chromosome-Class)
+- [2. Knight Class](#-2.-Knight-Class)
+- [3. Population Class](#-3.-Population-Class)
+- [4. Main Function](#-4.-Main-Function)
 
 ---
 
@@ -15,7 +24,51 @@ A **knight's tour** is a sequence of moves where the knight visits every square 
 The goal of this assignment is to solve the knight's tour problem using a **genetic algorithm** by creating the following classes:
 
 ---
+## 🎮 How to Use
 
+After launching the application, you will see the main window. 
+<table>
+  <tr>
+    <td width="100%" align="left">
+      <img src="./assets/main.png" alt="Screenshot of the loading" width="100%"/>
+    </td>
+  </tr>
+</table>
+
+This application offers two main modes: playing pre-designed **Default** position of knight is (0,0)
+
+### Playing a Default Mode
+
+**1. Select Game Mode**
+After launching the application, you will see the main menu. Click the **Play** button.
+
+<p align="center">
+  <img src="./assets/choose_position.png" alt="Map type selection after clicking Play" width="50%">
+</p>
+
+**a. Choose a Level**
+Next, pick a position of x and y (0 - 7).
+
+<p align="center">
+  <img src="./assets/Choose_1.png" alt="Level selection grid" width="50%"/>
+</p>
+
+**3. Preview the animation**
+ If you're ready, click **play**.
+
+**5. View the Results**
+Once solved, a victory pop-up will display the performance statistics for the run, such as time, memory usage, and steps taken. 
+<table>
+  <tr>
+    <td width="50%" align="left">
+      <img src="./assets/res.png" alt="Screenshot of the failure" width="100%"/>
+    </td>
+    <td width="50%" align="right">
+      <img src="./assets/res_1.png" alt="Screenshot of the victory" width="100%"/>
+    </td>
+  </tr>
+</table>
+---
 ## 1. Chromosome Class
 
 In the knight's tour problem, the **moves made by the knight** represent the genes of the chromosome.
@@ -97,9 +150,11 @@ Represents a group of knights.
 
 **Attributes:**
 
-* `population_size`: e.g., 50.
+* `population_size`: e.g., 100.
 * `generation`: number of generations (initially 1).
+* `max_generation`: number of generations maximal 1000 .
 * `knights`: list of knights in the population.
+* `mutation_rate`: e.g., 15%.
 
 **Functions:**
 
@@ -129,8 +184,4 @@ Represents a group of knights.
 ## 4. Main Function
 
 Runs the genetic algorithm and displays the optimal solution through a graphical interface.
-
-
-
-![image](https://github.com/user-attachments/assets/74bd702d-0723-4837-bffb-39daf31d3bd9)
 
