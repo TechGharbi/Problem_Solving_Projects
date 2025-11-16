@@ -29,8 +29,8 @@ The goal of this assignment is to solve the knight's tour problem using a **gene
 After launching the application, you will see the main window. 
 <table>
   <tr>
-    <td width="100%" align="left">
-      <img src="./assets/main.png" alt="Screenshot of the loading" width="100%"/>
+    <td width="100%" align="center">
+      <img src="./assets/main.png" alt="Screenshot of the loading" width="50%"/>
     </td>
   </tr>
 </table>
